@@ -1,0 +1,11 @@
+.home-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 10%;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color:#67548B;
+  background-size: cover;
+}

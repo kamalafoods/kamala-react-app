@@ -1,0 +1,137 @@
+/* Navbar Header */
+.nav-header {
+  background: linear-gradient(180deg, #4C3A75, #67548B, #8C73B1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  margin: 0px;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0px;
+}
+
+.website-logo {
+ height: 90px;
+ width: auto;
+ margin: 0px;
+ transition: transform 0.3s ease;
+}
+
+.website-logo:hover {
+  transform: scale(1.08);
+}
+
+/* Desktop Menu */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin-right: 100px;
+  padding: 0px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #f3efef;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: #00bcd4;
+  text-shadow: 0 0 8px rgba(0, 188, 212, 0.8);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #00bcd4, #0097a7);
+  border-radius: 2px;
+  box-shadow: 0 0 6px rgba(0, 188, 212, 0.6);
+}
+
+
+/* Hamburger Icon */
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+}
+
+/* Mobile Dropdown Menu */
+.mobile-menu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(180deg, #4C3A75, #67548B, #8C73B1);
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 65px;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.35s ease-in-out;
+  z-index: 99;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.mobile-menu.open {
+  transform: scaleY(1);
+}
+
+.mobile-link {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  padding: 12px 20px;
+  display: block;
+}
+
+.mobile-link:hover,
+.mobile-link.active {
+  background-color: #00bcd4;
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+
+  .hamburger-menu {
+    display: block;
+    color: #f2f0f0;
+    padding-right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-header {
+    padding: 8px 15px;
+  }
+
+  .website-logo {
+    height: 35px;
+  }
+
+  .mobile-link {
+    font-size: 16px;
+    padding: 10px 15px;
+  }
+}
