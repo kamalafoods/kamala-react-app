@@ -1,11 +1,19 @@
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { IoMdClose } from "react-icons/io";
 
-import React from "react"
+import "./navbar.css";
 
-import "./navbar.css"
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
-const Navbar = () => {
-    return (
-        <nav className="nav-header">
+  const toggleMenu = () => setIsOpen(!isOpen);
+  const closeMenu = () => setIsOpen(false);
+
+  return (
+    <nav className="nav-header">
       <div className="nav-content">
         <Link to="/" className="logo-link">
           <img
@@ -15,30 +23,24 @@ const Navbar = () => {
           />
         </Link>
 
-        {/* Desktop Menu */}
         <ul className="nav-menu">
-          <li><Link to="/" className={`nav-link ${location.pathname === "/" ? "active" : ""}`}>Home</Link></li>
-          <li><Link to="/about" className={`nav-link ${location.pathname === "/about" ? "active" : ""}`}>About</Link></li>
-          <li><Link to="/services" className={`nav-link ${location.pathname === "/products" ? "active" : ""}`}>Products</Link></li>
-          <li><Link to="/projects" className={`nav-link ${location.pathname === "" ? "active" : ""}`}></Link></li>
-          <li><Link to="/contactus" className={`nav-link ${location.pathname === "/contactus" ? "active" : ""}`}>ContactUs</Link></li>
+          <li><Link className={location.pathname === "/" ? "active" : ""} to="/">Home</Link></li>
+          <li><Link className={location.pathname === "/about" ? "active" : ""} to="/about">About</Link></li>
+          <li><Link className={location.pathname === "/products" ? "active" : ""} to="/products">Products</Link></li>
+          <li><Link className={location.pathname === "/contactus" ? "active" : ""} to="/contactus">Contact</Link></li>
         </ul>
 
-        {/* Mobile Hamburger */}
         <div className="hamburger-menu" onClick={toggleMenu}>
           {isOpen ? <IoMdClose size={28} /> : <GiHamburgerMenu size={28} />}
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu */}
-      <ul className={`mobile-menu ${isOpen ? 'open' : ''}`}>
-        <li><Link to="/" className={`mobile-link ${location.pathname === "/" ? "active" : ""}`} onClick={closeMenu}>Home</Link></li>
-        <li><Link to="/about" className={`mobile-link ${location.pathname === "/about" ? "active" : ""}`} onClick={closeMenu}>About</Link></li>
-        <li><Link to="/services" className={`mobile-link ${location.pathname === "/products" ? "active" : ""}`} onClick={closeMenu}>Products</Link></li>
-        <li><Link to="/projects" className={`mobile-link ${location.pathname === "/" ? "active" : ""}`} onClick={closeMenu}></Link></li>
-        <li><Link to="/contactus" className={`mobile-link ${location.pathname === "/contactus" ? "active" : ""}`} onClick={closeMenu}>ContactUs</Link></li>
+      <ul className={`mobile-menu ${isOpen ? "open" : ""}`}>
+        <li><Link to="/" onClick={closeMenu}>Home</Link></li>
+        <li><Link to="/about" onClick={closeMenu}>About</Link></li>
+        <li><Link to="/products" onClick={closeMenu}>Products</Link></li>
+        <li><Link to="/contactus" onClick={closeMenu}>Contact</Link></li>
       </ul>
     </nav>
-    )
+  );
 }
-export default Navbar

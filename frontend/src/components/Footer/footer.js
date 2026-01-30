@@ -1,7 +1,9 @@
+import './footer.css';
+
 export default function Footer() {
   return (
-    <footer style={{ padding: "10px", background: "#eee", marginTop: "20px" }}>
+    <footer className="footer">
       <p>© 2026 Kamala Website</p>
     </footer>
-  )
+  );
 }

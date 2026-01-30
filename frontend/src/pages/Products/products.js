@@ -1,6 +1,6 @@
 import './products.css';
 
-export default function products(){
+export default function Products(){
     return(
         <div className="products-cont">
             <h1>Our Products</h1>

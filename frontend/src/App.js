@@ -1,18 +1,18 @@
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar/navbar.js';
-import Footer from './components/Footer/footer.js';
-import Home from './pages/Home/home.js';
-import About from './pages/About/about.js';
-import ContactUs from './pages/ContactUs/contact.js';
-import Products from './pages/Products/products.js';
-import NotFound from './pages/NotFound/notfound.js';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/footer';
+import Home from './pages/Home/home';
+import About from './pages/About/about';
+import ContactUs from './pages/ContactUs/contact';
+import Products from './pages/Products/products';
+import NotFound from './pages/NotFound/notfound';
 
 import './App.css'
 
 export default function App(){
   return (
-    <Router>
+    <BrowserRouter>
       < Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -22,6 +22,6 @@ export default function App(){
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
-    </Router>
+    </BrowserRouter>
   );
 }
