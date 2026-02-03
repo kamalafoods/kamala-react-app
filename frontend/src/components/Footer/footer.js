@@ -6,4 +6,4 @@ export default function Footer() {
       <p>© 2026 Kamala Website</p>
     </footer>
   );
-}
+} 
