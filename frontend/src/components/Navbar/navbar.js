@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { IoMdClose } from "react-icons/io";
+// import { GiHamburgerMenu } from "react-icons/gi";
+// import { IoMdClose } from "react-icons/io";
 
 import "./navbar.css";
 
@@ -23,16 +23,17 @@ export default function Navbar() {
           />
         </Link>
 
-        <ul className="nav-menu">
-          <li><Link className={location.pathname === "/" ? "active" : ""} to="/">Home</Link></li>
-          <li><Link className={location.pathname === "/about" ? "active" : ""} to="/about">About</Link></li>
-          <li><Link className={location.pathname === "/products" ? "active" : ""} to="/products">Products</Link></li>
-          <li><Link className={location.pathname === "/contactus" ? "active" : ""} to="/contactus">Contact</Link></li>
-        </ul>
+  <ul className="nav-menu">
+    <li><Link to="/"className={`nav-link ${location.pathname === "/" ? "active" : ""}`}>Home </Link></li>
+    <li><Link to="/about"className={`nav-link ${location.pathname === "/about" ? "active" : ""}`}>About</Link></li>
+    <li><Link to="/products"className={`nav-link ${location.pathname === "/products" ? "active" : ""}`}>Products</Link></li>
+    <li><Link to="/contactus"className={`nav-link ${location.pathname === "/contactus" ? "active" : ""}`}>Contact</Link></li>
+  </ul>
 
-        <div className="hamburger-menu" onClick={toggleMenu}>
+
+        {/* <div className="hamburger-menu" onClick={toggleMenu}>
           {isOpen ? <IoMdClose size={28} /> : <GiHamburgerMenu size={28} />}
-        </div>
+        </div> */}
       </div>
 
       <ul className={`mobile-menu ${isOpen ? "open" : ""}`}>
